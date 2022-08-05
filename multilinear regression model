@@ -1,28 +1,16 @@
 import pandas as pd
 import numpy as np
 
+
 yr,yc=int(input("number of rows")),1
 # 100 110 105 94 95 99 104 108 105 98 105 110
 # rows 12
 ym = list(map(int, input().split()))
 y= np.array(ym).reshape(yr,yc)
 print(y)
+
 
 output:
-]:
-
-
-
-
-yr,yc=int(input("number of rows")),1
-# 100 110 105 94 95 99 104 108 105 98 105 110
-# rows 12
-ym = list(map(int, input().split()))
-y= np.array(ym).reshape(yr,yc)
-print(y)
-
-
-
 number of rows12
 100 110 105 94 95 99 104 108 105 98 105 110
 [[100]
@@ -38,16 +26,16 @@ number of rows12
  [105]
  [110]]
  
- xr,xc=int(input("number of rows")),int(input("number of colums"))
+ 
+xr,xc=int(input("number of rows")),int(input("number of colums"))
 # 1 9 62 1 8 58 1 7 64 1 14 60 1 12 63 1 10 57 1 7 55 1 4 56 1 6 59 1 5 61 1 7 57 1 6 60
 # rows 12 colums 3
 xm = list(map(int,input().split()))
 x=np.array(xm).reshape(xr,xc)
 print(x)
 
+
 output:
-
-
 number of rows12
 number of colums3
 1 9 62 1 8 58 1 7 64 1 14 60 1 12 63 1 10 57 1 7 55 1 4 56 1 6 59 1 5 61 1 7 57 1 6 60
@@ -64,7 +52,8 @@ number of colums3
  [ 1  7 57]
  [ 1  6 60]]
  
- xt = np.transpose(x)
+ 
+xt = np.transpose(x)
 print(xt)
 xtx = np.dot(xt,x)
 print(xtx)
@@ -75,6 +64,7 @@ print(xty)
 
 b=np.dot(ixtx,xty)
 print(b)
+
 
 output:
 [[ 1  1  1  1  1  1  1  1  1  1  1  1]
@@ -93,16 +83,16 @@ output:
  [ -1.24850346]
  [ -0.35100837]]
  
- yc=[]
+ 
+yc=[]
 for i in range(int(xr)):
     s=b[0]+b[1]*x[i][1]+b[2]*x[i][2]
     yc.append(s)
 yc=np.array(yc)
 print(yc)
 
+
 output:
-
-
 [[100.46143226]
  [103.11396921]
  [102.25642243]
@@ -116,13 +106,15 @@ output:
  [104.71348104]
  [104.90895938]]
  
- df=pd.read_excel("C:\\Users\\y20cs143\\Documents\\good_fit.xlsx")
+ 
+df=pd.read_excel("C:\\Users\\y20cs143\\Documents\\good_fit.xlsx")
 df=pd.DataFrame(df)
 df['observed']=y.tolist()
 df['fitted']=yc.tolist()
 dy=y-yc
 df['error']=dy.tolist()
 print(df)
+
 
 output:
    observed                fitted                   error
