@@ -131,3 +131,78 @@ output:
 9      [98]  [105.80645446312212]    [-7.806454463122122]
 10    [105]  [104.71348103642538]    [0.2865189635746219]
 11    [110]  [104.90895937796836]     [5.091040622031642]
+
+
+et=np.transpose(e)
+sse=np.dot(et,e)
+print(sse)
+
+sy=sum(y)/yr
+print(sy)
+sst=0
+for i in y:
+    st=(i-sy)**2
+    sst+=st
+print(sst)
+
+ssr=sst-sse
+print(ssr)
+
+r2=ssr/sst
+print(r2)
+
+if r2<0.90:
+    print("we reject modal")
+else:
+    print("we accept modal")
+
+
+ontput:
+[[151.41040622]]
+[102.75]
+[330.25]
+[[178.83959378]]
+[[0.54152791]]
+we reject modal
+
+
+ddf=pd.read_excel("C:\\Users\\y20cs143\\Documents\\anova_table.xlsx")
+ddf=pd.DataFrame(ddf)
+ddf["source of variance"]=["treatment","errors","total"]
+ddf["sum of squares"]=[ssr,sse,sst]
+ddf["degrees of freedom"]=[xc-1,xr-xc,xr-1]
+msr,mse=ssr/(xc-1),sse/(xr-xc)
+ddf["mean sum of squares"]=[msr,mse,"---"]
+fcal=msr/mse
+ddf["variance ratio"]=["---",fcal,"---"]
+print(ddf)
+
+output:
+  source of variance          sum of squares  degrees of freedom  \
+0          treatment  [[178.83959377968236]]                   2   
+1             errors  [[151.41040622031764]]                   9   
+2              total                [330.25]                  11   
+
+      mean sum of squares         variance ratio  
+0   [[89.41979688984118]]                    ---  
+1  [[16.823378468924183]]  [[5.315210440935849]]  
+2                     ---                    ---  
+
+
+
+#inference
+import scipy.stats as s
+los=eval(input("enter the level of significance"))
+ftab=s.f.ppf(1-los,xc-1,xr-xc)
+print("Ftab =",ftab)
+if(fcal>ftab):
+    print("We accept H0")
+else:
+    print("We reject H0")
+
+
+output:
+
+enter the level of significance0.05
+Ftab = 4.25649472909375
+We accept H0
