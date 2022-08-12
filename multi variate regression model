@@ -112,7 +112,7 @@ df=pd.read_excel("C:\\Users\\y20cs143\\Documents\\good_fit.xlsx")
 df=pd.DataFrame(df)
 df['observed']=y.tolist()
 df['fitted']=yc.tolist()
-dy=y-yc
+e=y-yc
 df['error']=dy.tolist()
 print(df)
 
