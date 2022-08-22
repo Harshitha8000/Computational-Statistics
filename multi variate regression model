@@ -135,21 +135,21 @@ output:
 
 et=np.transpose(e)
 sse=np.dot(et,e)
-print(sse)
+print("sse = ",sse)
 
 sy=sum(y)/yr
-print(sy)
+print("y bar = ",sy)
 sst=0
 for i in y:
     st=(i-sy)**2
     sst+=st
-print(sst)
+print("sst = ",sst)
 
 ssr=sst-sse
-print(ssr)
+print("ssr = ",ssr)
 
 r2=ssr/sst
-print(r2)
+print("r2 = ",r2)
 
 if r2<0.90:
     print("we reject modal")
@@ -158,11 +158,11 @@ else:
 
 
 ontput:
-[[151.41040622]]
-[102.75]
-[330.25]
-[[178.83959378]]
-[[0.54152791]]
+sse = [[151.41040622]]
+y bar = [102.75]
+sst = [330.25]
+ssr = [[178.83959378]]
+r2 = [[0.54152791]]
 we reject modal
 
 
