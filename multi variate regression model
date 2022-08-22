@@ -3,17 +3,17 @@ import numpy as np
 import scipy.stats as s
 
 
-yr,yc=int(input("number of rows")),1
+yr,yc=int(input("number of rows : ")),1
 # 100 110 105 94 95 99 104 108 105 98 105 110
 # rows 12
-ym = list(map(int, input().split()))
+ym = list(map(int, input("enter y values : ").split()))
 y= np.array(ym).reshape(yr,yc)
 print(y)
 
 
 output:
 number of rows12
-100 110 105 94 95 99 104 108 105 98 105 110
+enter y values : 100 110 105 94 95 99 104 108 105 98 105 110
 [[100]
  [110]
  [105]
@@ -28,10 +28,10 @@ number of rows12
  [110]]
  
  
-xr,xc=int(input("number of rows")),int(input("number of colums"))
+xr,xc=int(input("number of rows : ")),int(input("number of colums : "))
 # 1 9 62 1 8 58 1 7 64 1 14 60 1 12 63 1 10 57 1 7 55 1 4 56 1 6 59 1 5 61 1 7 57 1 6 60
 # rows 12 colums 3
-xm = list(map(int,input().split()))
+xm = list(map(int,input("enter x values : ").split()))
 x=np.array(xm).reshape(xr,xc)
 print(x)
 
@@ -39,7 +39,7 @@ print(x)
 output:
 number of rows12
 number of colums3
-1 9 62 1 8 58 1 7 64 1 14 60 1 12 63 1 10 57 1 7 55 1 4 56 1 6 59 1 5 61 1 7 57 1 6 60
+enter x values : 1 9 62 1 8 58 1 7 64 1 14 60 1 12 63 1 10 57 1 7 55 1 4 56 1 6 59 1 5 61 1 7 57 1 6 60
 [[ 1  9 62]
  [ 1  8 58]
  [ 1  7 64]
