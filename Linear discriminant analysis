@@ -74,6 +74,8 @@ u1t=np.transpose(u1)
 u2t=np.transpose(u2)
 l1=math.log(x1r/n)
 l2=math.log(x2r/n)
+a1=np.dot(u1,ci,uk)
+a2=np.dot(u2,ci,uk)
 b1=np.dot(u1,ci,u1t)
 b2=np.dot(u2,ci,u2t)
 
