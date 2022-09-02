@@ -66,3 +66,16 @@ print("c = ",c)
 output:
 c =  [[ 0.20598367 -0.23093265]
  [-0.23093265  1.69216327]]
+ 
+
+# f1=u1*ci*xk-1/2*u1*ci*u1t+lu(pi)
+ci=np.linalg.inv(c)
+u1t=np.transpose(u1)
+u2t=np.transpose(u2)
+l1=math.log(x1r/n)
+l2=math.log(x2r/n)
+b1=np.dot(u1,ci,u1t)
+b2=np.dot(u2,ci,u2t)
+
+f1=a1-(1/2)*b1+l1
+f2=a2-(1/2)*b2+l2
