@@ -8,7 +8,7 @@ import math
 # 9 10 6 8 9 5 8 7 10 8
 # 2.95 6.63 2.53 7.79 3.57 5.65 3.16 5.47
 # 2.58 4.46 2.16 6.22 3.27 3.52
-x1,x2=list(map(float,input("x1 values : ").split())),list(map(float,input("x2 values : ").split()))
+x1,x2=list(map(eval,input("x1 values : ").split())),list(map(eval,input("x2 values : ").split()))
 x1r,x1c=int(len(x1)/2),2
 x2r,x2c=int(len(x2)/2),2
 x=x1+x2
