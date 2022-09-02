@@ -68,7 +68,9 @@ c =  [[ 0.20598367 -0.23093265]
  [-0.23093265  1.69216327]]
  
 
-# fi=ui*ci*xk-1/2*ui*ci*uit+lu(pi)
+# f1=u1*ci*xk-1/2*u1*ci*u1t+lu(pi)
+ukv=list(map(eval,input("uk values : ").split()))
+uk=np.array(ukv).reshape(1,2)
 ci=np.linalg.inv(c)
 u1t=np.transpose(u1)
 u2t=np.transpose(u2)
