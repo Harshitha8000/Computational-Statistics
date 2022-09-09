@@ -1,0 +1,46 @@
+import pandas as pd
+import numpy as np
+import scipy.stats as s
+import math
+from numpy.polynomial import polynomial as P
+
+# 2 4 1 3 0 1 -1 0.5
+xv=list(map(eval,input("x values : ").split()))
+row,col=int(len(xv)/2),2
+x = np.array(xv).reshape(row,col)
+print("\n x = \n",x)
+
+u=np.mean(x,axis=0)
+print("\n u = \n",u)
+
+xmu=x-u
+print("\n x - u = \n",xmu)
+
+xut=np.transpose(xmu)
+xtx=np.dot(xut,xmu)
+
+c=xtx/len(x)
+print("\n c = \n",c)
+
+
+output:
+x values : 2 4 1 3 0 1 -1 0.5
+
+ x = 
+ [[ 2.   4. ]
+ [ 1.   3. ]
+ [ 0.   1. ]
+ [-1.   0.5]]
+
+ u = 
+ [0.5   2.125]
+
+ x - u = 
+ [[ 1.5    1.875]
+ [ 0.5    0.875]
+ [-0.5   -1.125]
+ [-1.5   -1.625]]
+
+ c = 
+ [[1.25     1.5625  ]
+ [1.5625   2.046875]]
