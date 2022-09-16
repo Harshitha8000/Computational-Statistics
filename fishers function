@@ -1,0 +1,138 @@
+FISHERS FUNCTION
+[ ]
+#DISCRIMINANT ANALYSIS using fishers function
+y=[[int(x) for x in input().split()]]
+y=transpose(y)
+print(y)
+n=int(input(&quot;enter no of independent variables&quot;))
+ivv=[]
+x=[]
+for i in range(n):
+     ivv.append(float(input(&quot;enter value of this group&quot;)))
+     x.append([float(x) for x in input().split()])
+x=transpose(x)
+print(x)
+meu=[]
+for j in range(len(x[0])):
+  a=0
+  for i in range(len(x)):
+     a=a+x[i][j]
+  a=a/len(x)
+  meu.append(a)
+print(meu)
+cou=y.count(y[0])
+x1=[]
+for i in range(cou):
+  x1.append(x[i])
+print(x1)
+x2=[]
+for i in range(cou,len(x)):
+
+  x2.append(x[i])
+print(x2)
+meu1=[]
+for j in range(len(x1[0])):
+  a=0
+  for i in range(len(x1)):
+     a=a+x1[i][j]
+  a=a/len(x1)
+  meu1.append(a)
+print(meu1)
+meu2=[]
+for j in range(len(x2[0])):
+  a=0
+  for i in range(len(x2)):
+     a=a+x2[i][j]
+  a=a/len(x2)
+  meu2.append(a)
+print(meu2)
+o=[]
+for i in range(len(x)):
+    a=[]
+    for j in range(len(x[0])):
+        a.append(x[i][j]-meu[j])
+    o.append(a)
+print(o)
+#pooled covariance matrix
+import numpy as np
+cl=np.array(multiplicate(transpose(o),o))/(len(x))
+print(cl)
+c=[]
+for i in range(len(cl)):
+  t=[]
+  for j in range(len(cl[0])): 
+       t.append(cl[i][j])
+  c.append(t)
+print(c)
+import numpy as np
+ci=np.linalg.inv(c)
+
+print(ci)
+#fishers discriminant function
+xk=[[ivv[0]],[ivv[1]]]
+meut=[[meu[0]],[meu[1]]]
+meu1t=[[meu1[0]],[meu1[1]]]
+meu2t=[[meu2[0]],[meu2[1]]]
+f1=np.dot(meu1,np.dot(ci,xk))-
+(1/2)*np.dot(meu1,np.dot(ci,meu1t))+np.log(len(x1)/(len(x)))
+f2=np.dot(meu2,np.dot(ci,xk))-
+(1/2)*np.dot(meu2,np.dot(ci,meu2t))+np.log(len(x2)/(len(x)))
+if f1&gt;f2:
+   print(&quot;the given set belongs to first group&quot;)
+else:
+  print(&quot;the given set belongs to second group&quot;)
+&quot;&quot;&quot;
+OUTPUT 1:
+1 1 1 1 1 0 0 0 0 0
+[[1], [1], [1], [1], [1], [0], [0], [0], [0], [0]]
+enter no of independent variables2
+enter value of this group5
+4 2 2 3 4 9 6 9 8 10
+enter value of this group6
+2 4 3 6 4 10 8 5 7 8
+[[4.0, 2.0], [2.0, 4.0], [2.0, 3.0], [3.0, 6.0], [4.0, 4.0], [9.0, 10.0
+], [6.0, 8.0], [9.0, 5.0], [8.0, 7.0], [10.0, 8.0]]
+[5.7, 5.7]
+[[4.0, 2.0], [2.0, 4.0], [2.0, 3.0], [3.0, 6.0], [4.0, 4.0]]
+[[9.0, 10.0], [6.0, 8.0], [9.0, 5.0], [8.0, 7.0], [10.0, 8.0]]
+[3.0, 3.8]
+[8.4, 7.6]
+[[-1.7000000000000002, -3.7], [-3.7, -1.7000000000000002], [-3.7, -
+2.7], [-2.7, 0.2999999999999998], [-1.7000000000000002, -
+1.7000000000000002], [3.3, 4.3], [0.2999999999999998, 2.3], [3.3, -
+0.7000000000000002], [2.3, 1.2999999999999998], [4.3, 2.3]]
+[[8.61 5.01]
+ [5.01 5.81]]
+[[8.610000000000001, 5.01], [5.01, 5.8100000000000005]]
+[[ 0.23310865 -0.20101107]
+ [-0.20101107  0.34545017]]
+the given set belongs to first group
+
+OUTPUT 2:
+1 1 1 1 0 0 0
+[[1], [1], [1], [1], [0], [0], [0]]
+enter no of independent variables2
+enter value of this group2.81
+2.95 2.53 3.57 3.16 2.58 2.16 3.27
+enter value of this group5.46
+6.63 7.79 5.65 5.47 4.46 6.22 3.5
+[[2.95, 6.63], [2.53, 7.79], [3.57, 5.65], [3.16, 5.47], [2.58, 4.46], 
+[2.16, 6.22], [3.27, 3.5]]
+[2.888571428571429, 5.674285714285714]
+[[2.95, 6.63], [2.53, 7.79], [3.57, 5.65], [3.16, 5.47]]
+[[2.58, 4.46], [2.16, 6.22], [3.27, 3.5]]
+[3.0525, 6.385]
+[2.67, 4.726666666666667]
+[[0.06142857142857139, 0.9557142857142855], [-
+0.358571428571429, 2.1157142857142857], [0.681428571428571, -
+0.024285714285714022], [0.27142857142857135, -0.20428571428571463], [-
+0.3085714285714287, -1.2142857142857144], [-
+0.7285714285714286, 0.5457142857142854], [0.38142857142857123, -
+2.1742857142857144]]
+[[ 0.20598367 -0.23202245]
+ [-0.23202245  1.70453878]]
+[[0.2059836734693877, -0.23202244897959184], [-
+0.23202244897959184, 1.7045387755102044]]
+[[5.73392221 0.78050361]
+ [0.78050361 0.69291141]]
+the given set belongs to second group
